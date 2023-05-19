@@ -2,11 +2,17 @@
 #include "Deck.h"
 #include "Card.h"
 
-int Player::drawCard(const Deck& deck) const
+int Player::drawCard(Deck& deck)
 {
+	
 	int val = deck.dealCard().value();
-
+	m_score += val;
 	return val;
+}
+
+bool Player::isBust() const
+{
+	return (m_score > g_maximumScore);
 }
 
 
