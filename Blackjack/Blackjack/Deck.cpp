@@ -2,6 +2,7 @@
 #include <iostream>
 #include <random> // std::mt19937
 #include <ctime> // std::time
+#include <cassert>
 
 void createDeck(Deck* const& deck)
 {
@@ -38,9 +39,18 @@ void Deck::print() const
 	std::cout << '\n';
 }
 
-void Deck::shuffleDeck()
+void Deck::shuffle()
 {
     static std::mt19937 mt{ static_cast<std::mt19937::result_type>(std::time(nullptr)) };
 
     std::shuffle(m_deck.begin(), m_deck.end(), mt);
+	m_cardIndex = 0;
+}
+
+const Card& Deck::dealCard()
+{
+	// TODO: insert return statement here
+	assert(m_cardIndex < m_deck.size());
+
+	return m_deck[m_cardIndex++];
 }

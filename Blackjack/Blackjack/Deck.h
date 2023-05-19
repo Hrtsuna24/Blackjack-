@@ -9,6 +9,8 @@ private:
 	static constexpr size_t Cards{ 52 };
 	using size_type = array<Card, Cards>;
 	size_type m_deck;
+	size_t m_cardIndex{ 0 };
+
 	friend void createDeck(Deck* const& dec);
 
 public:
@@ -16,6 +18,7 @@ public:
 
 	Deck();
 	void print() const;
-	void shuffleDeck();
+	void shuffle();
+	const Card& dealCard();
 };
 
