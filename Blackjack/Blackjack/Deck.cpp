@@ -4,6 +4,7 @@
 #include <ctime> // std::time
 #include <cassert>
 
+
 void createDeck(Deck* const& deck)
 {
 	// We could initialize each card individually, but that would be a pain.  Let's use a loop.
