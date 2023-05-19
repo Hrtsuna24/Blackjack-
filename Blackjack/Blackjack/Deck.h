@@ -16,5 +16,6 @@ public:
 
 	Deck();
 	void print() const;
+	void shuffleDeck();
 };
 

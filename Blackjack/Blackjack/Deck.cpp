@@ -1,6 +1,7 @@
 #include "Deck.h"
 #include <iostream>
-
+#include <random> // std::mt19937
+#include <ctime> // std::time
 
 void createDeck(Deck* const& deck)
 {
@@ -35,4 +36,11 @@ void Deck::print() const
 	}
 
 	std::cout << '\n';
+}
+
+void Deck::shuffleDeck()
+{
+    static std::mt19937 mt{ static_cast<std::mt19937::result_type>(std::time(nullptr)) };
+
+    std::shuffle(m_deck.begin(), m_deck.end(), mt);
 }
